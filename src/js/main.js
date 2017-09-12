@@ -1,8 +1,8 @@
 'use strict';
 
-(function(){
-    var days, hours, minutes, seconds, currentDateTime, difference;
-    var targetDateTime = new Date("Dec 31, 2017 00:00:00").getTime();
+window.onload = function(){
+    var currentDateTime, difference, days, hours, minutes, seconds;
+    var targetDateTime = new Date("December 31, 2017 ").getTime();
     var interval = 1000;
 
     function Timer(){
@@ -12,17 +12,17 @@
         this.seconds = document.getElementById('seconds');
 
         this.refreshTime = function(d,h,m,s){
-            days.textContent = d;
-            hours.textContent = h;
-            minutes.textContent = m;
-            seconds.textContent = s;
+            this.days.textContent = d;
+            this.hours.textContent = h;
+            this.minutes.textContent = m;
+            this.seconds.textContent = s;
         }
     }
 
     var timer = new Timer();
 
     setInterval(function(){
-        currentDateTime = new Date.UTC().getTime();
+        currentDateTime = new Date().getTime();
         difference = targetDateTime - currentDateTime;
 
         if(difference > 0){
@@ -37,4 +37,4 @@
         }
 
     }, interval);
-}());
+};
