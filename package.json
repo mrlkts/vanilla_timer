@@ -1,0 +1,18 @@
+{
+  "name": "timer_vanilla",
+  "version": "1.0.0",
+  "description": "A simple timer implementation in plain Javascript",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "timer",
+    "javascript"
+  ],
+  "author": "Imrich Lakatos",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.18.1"
+  }
+}
