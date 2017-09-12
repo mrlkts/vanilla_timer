@@ -1,6 +1,7 @@
 'use strict';
 
 (function(){
+    var days, hours, minutes, seconds, currentDateTime, difference;
     var targetDateTime = new Date("Dec 31, 2017 00:00:00").getTime();
     var interval = 1000;
 
@@ -21,13 +22,13 @@
     var timer = new Timer();
 
     setInterval(function(){
-        var currentDateTime = new Date().getTime();
-        var difference = targetDateTime - currentDateTime;
+        currentDateTime = new Date.UTC().getTime();
+        difference = targetDateTime - currentDateTime;
 
-        var days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
         timer.refreshTime(days, hours, minutes, seconds);
     }, interval);
