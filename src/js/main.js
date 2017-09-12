@@ -1,9 +1,34 @@
 'use strict';
 
-require('moment');
-
 (function(){
-   var targetDate = moment('2017-12-31');
+    var targetDateTime = new Date("Dec 31, 2017 00:00:00").getTime();
+    var interval = 1000;
 
-   console.log(targetDate);
+    function Timer(){
+        this.days = document.getElementById('days');
+        this.hours = document.getElementById('hours');
+        this.minutes = document.getElementById('minutes');
+        this.seconds = document.getElementById('seconds');
+
+        this.refreshTime = function(d,h,m,s){
+            days.textContent = d;
+            hours.textContent = h;
+            minutes.textContent = m;
+            seconds.textContent = s;
+        }
+    }
+
+    var timer = new Timer();
+
+    setInterval(function(){
+        var currentDateTime = new Date().getTime();
+        var difference = targetDateTime - currentDateTime;
+
+        var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        timer.refreshTime(days, hours, minutes, seconds);
+    }, interval);
 }());
