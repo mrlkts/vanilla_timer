@@ -25,11 +25,16 @@
         currentDateTime = new Date.UTC().getTime();
         difference = targetDateTime - currentDateTime;
 
-        days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        if(difference > 0){
+            days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        timer.refreshTime(days, hours, minutes, seconds);
+            timer.refreshTime(days, hours, minutes, seconds);
+        } else {
+            alert("Happy New Year, friendo");
+        }
+
     }, interval);
 }());
