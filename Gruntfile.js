@@ -31,7 +31,7 @@ module.exports = function(grunt){
             },
             dist: {
                 files: {
-                    'dist/main.css': 'src/scss/main.scss'
+                    'dist/css/main.css': 'src/scss/main.scss'
                 }
             }
         }
